@@ -1,0 +1,22 @@
+const String LoginViewEmployerRoute = "LoginEmployer";
+const String LoginJobSeekerRoute = "LoginJobSeeker";
+const String SignUpViewEmployerRoute = "SignUpEmployer";
+const String EmployerProfileRoute = "EmployerProfile";
+const String EmployerJobListingRoute = "EmployerJobListing";
+const String EmployerJobListingNewRoute = "EmployerJobListingNew";
+const String SignUpJobSeekerRoute = 'SignUpJobSeeker';
+const String JobSeekerProfileRoute = 'JobSeekerProfile';
+const String JobSeekerLoginEmailRoute = 'JobSeekerLoginEmail';
+const String JobSeekerSkillListingRoute = 'JobSeekerSkillListing';
+const String JobSeekerSkillListRoute = 'JobSeekerSkillList';
+const String RestCountryAPIKey = '53a64c9e4e5144ed75eda6ff5ad7940d';
+const String TwitterApiKey = 'ZJvOkplDhlMy8dYEMVYmAVoAq';
+const String TwitterApiSecret = '2O5yfBJcmhloWzQWutWOBLqFKrks6Mn1fGRlMiK1QKGRxI9NtK';
+const String APPID = 'ZJvOkplDhlMy8dYEMVYmAVoAq';
+const String APPSECRET = '2O5yfBJcmhloWzQWutWOBLqFKrks6Mn1fGRlMiK1QKGRxI9NtK';
+const String JobSeeker = "Job Seeker";
+const String GeneralSignUp = 'General sign up failure. Please try again later';
+const String PasswordAndConfirmation = 'Your password and confirmation password do not match.';
+const String PasswordValid = 'Your password must be have at least \n10 Characters\n1 Uppercase & 1 Lowercase character\n1 Number \n1 Symbol';
+const String EmailAndName = 'Please fill required fields';
+// Generate the views here

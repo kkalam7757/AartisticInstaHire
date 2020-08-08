@@ -1,11 +1,9 @@
-import 'package:aartistic/viewModal/login_employer_model.dart';
 import 'package:aartistic/viewModal/login_job_seeker.dart';
 import 'package:aartistic/widget/footer.dart';
 import 'package:cross_local_storage/cross_local_storage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
-import 'package:stacked/stacked.dart';
 
 class LoginJobSeekerEmail extends StatefulWidget {
   @override
@@ -17,13 +15,18 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
   ProgressDialog pr;
   JobSeekerModel model = new JobSeekerModel();
   LocalStorageInterface _localStorage;
-
   TextEditingController userEmail = TextEditingController();
   TextEditingController password = TextEditingController();
+
   void _initLocalStorage() async {
     _localStorage = await LocalStorage.getInstance();
     userEmail.text = _localStorage.getString('email');
     password.text = _localStorage.getString('password');
+    setState(() {
+       if(_localStorage != null && _localStorage.getBool('rememberMe') != null)
+      rememberMe = _localStorage.getBool('rememberMe');
+    });
+    
   }
 
   @override
@@ -31,6 +34,7 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
     super.initState();
     _initLocalStorage();
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -39,7 +43,6 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
     pr.style(message: 'Please wait...');
     return Scaffold(
       body: ListView(
-        
         children: <Widget>[
           Container(
             padding: const EdgeInsets.all(20),
@@ -202,9 +205,16 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
                         await _localStorage.setString('email', userEmail.text);
                         await _localStorage.setString(
                             'password', password.text);
+                        await _localStorage.setBool('rememberMe', rememberMe);
+                      } else {
+                        _localStorage.remove('email');
+                        _localStorage.remove('password');
+                        _localStorage.remove('rememberMe');
                       }
                       model.signIn(
-                          email: userEmail.text, password: password.text,pr:pr);
+                          email: userEmail.text,
+                          password: password.text,
+                          pr: pr);
                     },
                     child: new Container(
                       width: double.infinity,

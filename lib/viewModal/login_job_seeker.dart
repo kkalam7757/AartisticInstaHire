@@ -36,14 +36,14 @@ class JobSeekerModel extends BaseModel {
           _navigationService.navigateTo(JobSeekerProfileRoute);
         } else {
           await _dialogService.showDialog(
-            title: 'sign in Failure',
+            title: 'Please Correct...',
             description: GeneralSignUp,
           );
         }
       } else {
         pr.hide();
         await _dialogService.showDialog(
-          title: 'Sign in Failure',
+          title: 'Please Correct...',
           description: result,
         );
       }
@@ -51,7 +51,7 @@ class JobSeekerModel extends BaseModel {
       new Timer(const Duration(milliseconds: 400), () async {
         pr.hide();
         await _dialogService.showDialog(
-          title: 'Sign in Failure',
+          title: 'Please Correct...',
           description: EmailAndName,
         );
       });
@@ -65,13 +65,13 @@ class JobSeekerModel extends BaseModel {
           _navigationService.navigateTo(JobSeekerProfileRoute);
         } else {
           await _dialogService.showDialog(
-            title: 'Sign Up Failure',
+            title: 'Please Correct...',
             description: GeneralSignUp,
           );
         }
       } else {
         await _dialogService.showDialog(
-          title: 'Sign Up Failure',
+          title: 'Please Correct...',
           description: result,
         );
       }
@@ -85,13 +85,13 @@ class JobSeekerModel extends BaseModel {
           _navigationService.navigateTo(JobSeekerProfileRoute);
         } else {
           await _dialogService.showDialog(
-            title: 'Sign Up Failure',
+            title: 'Please Correct...',
             description: GeneralSignUp,
           );
         }
       } else {
         await _dialogService.showDialog(
-          title: 'Sign Up Failure',
+          title: 'Please Correct...',
           description: result,
         );
       }
@@ -105,13 +105,13 @@ class JobSeekerModel extends BaseModel {
           _navigationService.navigateTo(JobSeekerProfileRoute);
         } else {
           await _dialogService.showDialog(
-            title: 'Sign Up Failure',
+            title: 'Please Correct...',
             description: GeneralSignUp,
           );
         }
       } else {
         await _dialogService.showDialog(
-          title: 'Sign Up Failure',
+          title: 'Please Correct...',
           description: result,
         );
       }
@@ -163,7 +163,7 @@ class JobSeekerModel extends BaseModel {
                 () async => {
                   pr.hide(),
                   await _dialogService.showDialog(
-                    title: 'Sign Up Failure',
+                    title: 'Please Correct...',
                     description: GeneralSignUp,
                   )
                 },
@@ -175,7 +175,7 @@ class JobSeekerModel extends BaseModel {
               () async => {
                 pr.hide(),
                 await _dialogService.showDialog(
-                  title: 'Sign Up Failure',
+                  title: 'Please Correct...',
                   description: result,
                 )
               },
@@ -187,7 +187,7 @@ class JobSeekerModel extends BaseModel {
             () async => {
               pr.hide(),
               await _dialogService.showDialog(
-                  title: 'Sign Up Failure',
+                  title: 'Please Correct...',
                   description: PasswordAndConfirmation)
             },
           );
@@ -198,7 +198,7 @@ class JobSeekerModel extends BaseModel {
           () async => {
             pr.hide(),
             await _dialogService.showDialog(
-                title: 'Sign Up Failure', description: PasswordValid)
+                title: 'Please Correct...', description: PasswordValid)
           },
         );
       }
@@ -206,7 +206,7 @@ class JobSeekerModel extends BaseModel {
       new Timer(const Duration(milliseconds: 400), () async {
         pr.hide();
         await _dialogService.showDialog(
-          title: 'Sign in Failure',
+          title: 'Please Correct...',
           description: EmailAndName,
         );
       });
@@ -243,7 +243,7 @@ class JobSeekerModel extends BaseModel {
       new Timer(const Duration(milliseconds: 400), () async {
         pr.hide();
         await _dialogService.showDialog(
-          title: 'Failure',
+          title: 'Please Correct...',
           description: 'City can\'t be blank',
         );
       });

@@ -33,10 +33,12 @@ class AuthenticationService {
       if (_currentUser.userRole == role) {
         return authResult.user != null;
       } else {
-        return 'Email and Password not matched';
+        return 'Email and Password did not match.';
       }
-      
     } catch (e) {
+      if (e.code == 'ERROR_INVALID_EMAIL') {
+        return ErrorInvalidEmail;
+      }
       return e.message;
     }
   }
@@ -65,6 +67,13 @@ class AuthenticationService {
 
       return authResult.user != null;
     } catch (e) {
+      print(e);
+      if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return EmailAlreadyHave;
+      }
+      if (e.code == 'ERROR_INVALID_EMAIL') {
+        return ErrorInvalidEmail;
+      }
       return e.message;
     }
   }
@@ -99,6 +108,9 @@ class AuthenticationService {
         return user != null;
       }
     } catch (e) {
+      if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return EmailAlreadyHave;
+      }
       return e.message;
     }
   }
@@ -134,34 +146,44 @@ class AuthenticationService {
       });
       return user != null;
     } catch (e) {
+      if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return EmailAlreadyHave;
+      }
       return e.message;
     }
   }
 
   Future signWithTwitter() async {
-    TwitterLogin twitterLogin = new TwitterLogin(
-        consumerKey: TwitterApiKey, consumerSecret: TwitterApiSecret);
-    TwitterLoginResult _twitterLoginResult = await twitterLogin.authorize();
-    TwitterSession _currentUserTwitterSession = _twitterLoginResult.session;
-    AuthCredential _authCredential = TwitterAuthProvider.getCredential(
-        authToken: _currentUserTwitterSession?.token ?? '',
-        authTokenSecret: _currentUserTwitterSession?.secret ?? '');
-    final FirebaseUser user =
-        (await _firebaseAuth.signInWithCredential(_authCredential)).user;
-    await _firestoreService.getUser(user.uid).then((value) async {
-      if (value == null) {
-        _currentUser = UserEmploper(
-          id: user.uid,
-          email: user.email,
-          fullName: user.displayName,
-          userRole: 'Job Seeker',
-        );
-        await _firestoreService.createUser(_currentUser);
-      } else {
-        await _populateCurrentUser(user);
+    try {
+      TwitterLogin twitterLogin = new TwitterLogin(
+          consumerKey: TwitterApiKey, consumerSecret: TwitterApiSecret);
+      TwitterLoginResult _twitterLoginResult = await twitterLogin.authorize();
+      TwitterSession _currentUserTwitterSession = _twitterLoginResult.session;
+      AuthCredential _authCredential = TwitterAuthProvider.getCredential(
+          authToken: _currentUserTwitterSession?.token ?? '',
+          authTokenSecret: _currentUserTwitterSession?.secret ?? '');
+      final FirebaseUser user =
+          (await _firebaseAuth.signInWithCredential(_authCredential)).user;
+      await _firestoreService.getUser(user.uid).then((value) async {
+        if (value == null) {
+          _currentUser = UserEmploper(
+            id: user.uid,
+            email: user.email,
+            fullName: user.displayName,
+            userRole: 'Job Seeker',
+          );
+          await _firestoreService.createUser(_currentUser);
+        } else {
+          await _populateCurrentUser(user);
+        }
+      });
+      return user != null;
+    } catch (e) {
+      if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return EmailAlreadyHave;
       }
-    });
-    return user != null;
+      return e.message;
+    }
   }
 
   Future signWithInstagram() {

@@ -39,7 +39,7 @@ class LoginEmployerViewModel extends BaseModel {
           _navigationService.navigateTo(EmployerProfileRoute);
         } else {
           await _dialogService.showDialog(
-            title: 'sign in Failure',
+            title: 'Please Correct...',
             description: GeneralSignUp,
           );
         }
@@ -47,7 +47,7 @@ class LoginEmployerViewModel extends BaseModel {
         new Timer(const Duration(milliseconds: 400), () async {
           pr.hide();
           await _dialogService.showDialog(
-            title: 'Sign in Failure',
+            title: 'Please Correct...',
             description: result,
           );
         });
@@ -56,7 +56,7 @@ class LoginEmployerViewModel extends BaseModel {
       new Timer(const Duration(milliseconds: 400), () async {
           pr.hide();
           await _dialogService.showDialog(
-            title: 'Sign in Failure',
+            title: 'Please Correct...',
             description: EmailAndName,
           );
         });

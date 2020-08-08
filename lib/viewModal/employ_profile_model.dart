@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:aartistic/constants/route_names.dart';
-import 'package:aartistic/services/authentication_service.dart';
 import 'package:aartistic/services/dialog_service.dart';
 import 'package:aartistic/services/firestore_service.dart';
 import 'package:aartistic/services/navigation_service.dart';
@@ -50,7 +49,7 @@ class EmployerProfileViewModel extends BaseModel {
       new Timer(const Duration(milliseconds: 400), () async {
           pr.hide();
            await _dialogService.showDialog(
-            title: 'Failure',
+            title: 'Please Correct...',
             description: 'City can\'t be blank',
           );
         });

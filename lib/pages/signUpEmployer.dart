@@ -139,7 +139,7 @@ class SignUpEmployer extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(left: 8),
                           child: Text(
-                            'Password',
+                            'Choose a Strong Password',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 color: Color(0xff707070), fontSize: 13),

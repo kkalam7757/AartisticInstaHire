@@ -4,7 +4,6 @@ import 'package:cross_local_storage/cross_local_storage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
-import 'package:stacked/stacked.dart';
 
 class LoginEmployer extends StatefulWidget {
   @override
@@ -24,8 +23,13 @@ class _LoginEmployerState extends State<LoginEmployer> {
 
   void _initLocalStorage() async {
     _localStorage = await LocalStorage.getInstance();
-    userEmail.text = _localStorage.getString('email');
-    password.text = _localStorage.getString('password');
+    userEmail.text = _localStorage.getString('email_emp');
+    password.text = _localStorage.getString('password_emp');
+    setState(() {
+      if(_localStorage != null && _localStorage.getBool('rememberMe_emp') != null)
+      rememberMe = _localStorage.getBool('rememberMe_emp');
+    });
+    
   }
 
   @override
@@ -202,9 +206,16 @@ class _LoginEmployerState extends State<LoginEmployer> {
                     onTap: () async {
                       pr.show();
                       if (rememberMe) {
-                        await _localStorage.setString('email', userEmail.text);
                         await _localStorage.setString(
-                            'password', password.text);
+                            'email_emp', userEmail.text);
+                        await _localStorage.setString(
+                            'password_emp', password.text);
+                        await _localStorage.setBool(
+                            'rememberMe_emp', rememberMe);
+                      } else {
+                        _localStorage.remove('email_emp');
+                        _localStorage.remove('password_emp');
+                        _localStorage.remove('rememberMe_emp');
                       }
                       model.signIn(
                           email: userEmail.text,

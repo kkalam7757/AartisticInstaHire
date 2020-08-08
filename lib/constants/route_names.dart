@@ -15,8 +15,11 @@ const String TwitterApiSecret = '2O5yfBJcmhloWzQWutWOBLqFKrks6Mn1fGRlMiK1QKGRxI9
 const String APPID = 'ZJvOkplDhlMy8dYEMVYmAVoAq';
 const String APPSECRET = '2O5yfBJcmhloWzQWutWOBLqFKrks6Mn1fGRlMiK1QKGRxI9NtK';
 const String JobSeeker = "Job Seeker";
-const String GeneralSignUp = 'General sign up failure. Please try again later';
+const String GeneralSignUp = 'General Please Correct.... Please try again later';
 const String PasswordAndConfirmation = 'Your password and confirmation password do not match.';
-const String PasswordValid = 'Your password must be have at least \n10 Characters\n1 Uppercase & 1 Lowercase character\n1 Number \n1 Symbol';
-const String EmailAndName = 'Please fill required fields';
+const String PasswordValid = 'Password must be at least 10 characters long. It must contain at least 1 uppercase letter (A..Z), 1 lowercase letter (a..z), 1 number (0..9) and 1 special character (*, #, \$, @, etc).';
+const String EmailAndName = 'Incorrect input or field is blank.';
+const String ProfileHint = 'No person\'s name, company-name, URL/domain, email or \nphone';
+const String EmailAlreadyHave = 'This email address is already in use. Please login to your existing account or use another email address to create a new account.';
+const String ErrorInvalidEmail = 'The Email is incorrectly formatted.';
 // Generate the views here

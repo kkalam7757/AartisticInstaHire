@@ -52,7 +52,7 @@ class SignUpViewModel extends BaseModel {
                   () async => {
                         pr.hide(),
                         await _dialogService.showDialog(
-                          title: 'Sign Up Failure',
+                          title: 'Please Correct...',
                           description:
                               GeneralSignUp,
                         )
@@ -64,7 +64,7 @@ class SignUpViewModel extends BaseModel {
               () async => {
                 pr.hide(),
                 await _dialogService.showDialog(
-                  title: 'Sign Up Failure',
+                  title: 'Please Correct...',
                   description: result,
                 )
               },
@@ -74,7 +74,7 @@ class SignUpViewModel extends BaseModel {
           new Timer(const Duration(milliseconds: 400), () async {
             pr.hide();
             await _dialogService.showDialog(
-              title: 'Sign up Failure',
+              title: 'Please Correct...',
               description:
                   PasswordAndConfirmation,
             );
@@ -86,7 +86,7 @@ class SignUpViewModel extends BaseModel {
           () async => {
             pr.hide(),
             await _dialogService.showDialog(
-              title: 'Sign Up Failure',
+              title: 'Please Correct...',
               description:
                   PasswordValid,
             )
@@ -97,7 +97,7 @@ class SignUpViewModel extends BaseModel {
       new Timer(const Duration(milliseconds: 400), () async {
         pr.hide();
         await _dialogService.showDialog(
-          title: 'Sign up Failure',
+          title: 'Please Correct...',
           description: EmailAndName,
         );
       });

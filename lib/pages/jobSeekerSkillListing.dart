@@ -1,6 +1,7 @@
 import 'package:aartistic/constants/route_names.dart';
 import 'package:aartistic/modals/drop_down.dart';
 import 'package:aartistic/viewModal/login_job_seeker.dart';
+import 'package:aartistic/widget/JobSeekerDrawer.dart';
 import 'package:aartistic/widget/employer_navigation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -299,22 +300,7 @@ class _JobSeekerSkillListingState extends State<JobSeekerSkillListing> {
       appBar: AppBar(
         title: Text('Job Seeker Skillset Listing'),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: <Color>[Colors.blueAccent, Colors.lightBlue])),
-              child: Text(''),
-            ),
-            NavigationItem('Profile', Icons.person,
-                () => {model.navigation(JobSeekerProfileRoute)}),
-            NavigationItem('Skill Listing', Icons.view_list,
-                () => {model.navigation(JobSeekerSkillListingRoute)})
-          ],
-        ),
-      ),
+      drawer: JobSeekerDrawer()
     );
   }
 }

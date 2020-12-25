@@ -33,7 +33,7 @@ class JobSeekerModel extends BaseModel {
       if (result is bool) {
         pr.hide();
         if (result) {
-          _navigationService.navigateTo(JobSeekerProfileRoute);
+          _navigationService.navigateTo(JobSeekerDashboardRoute);
         } else {
           await _dialogService.showDialog(
             title: 'Please Correct...',
@@ -98,25 +98,25 @@ class JobSeekerModel extends BaseModel {
     });
   }
 
-  Future loginTwitter() async {
-    await _authenticationService.signWithTwitter().then((result) async {
-      if (result is bool) {
-        if (result) {
-          _navigationService.navigateTo(JobSeekerProfileRoute);
-        } else {
-          await _dialogService.showDialog(
-            title: 'Please Correct...',
-            description: GeneralSignUp,
-          );
-        }
-      } else {
-        await _dialogService.showDialog(
-          title: 'Please Correct...',
-          description: result,
-        );
-      }
-    });
-  }
+  // Future loginTwitter() async {
+  //   await _authenticationService.signWithTwitter().then((result) async {
+  //     if (result is bool) {
+  //       if (result) {
+  //         _navigationService.navigateTo(JobSeekerProfileRoute);
+  //       } else {
+  //         await _dialogService.showDialog(
+  //           title: 'Please Correct...',
+  //           description: GeneralSignUp,
+  //         );
+  //       }
+  //     } else {
+  //       await _dialogService.showDialog(
+  //         title: 'Please Correct...',
+  //         description: result,
+  //       );
+  //     }
+  //   });
+  // }
 
   loginWithEmail() {
     _navigationService.navigateTo(JobSeekerLoginEmailRoute);

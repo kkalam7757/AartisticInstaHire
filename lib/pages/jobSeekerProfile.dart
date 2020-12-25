@@ -3,6 +3,7 @@ import 'package:aartistic/modals/drop_down.dart';
 import 'package:aartistic/modals/user.dart';
 import 'package:aartistic/services/formatters.dart';
 import 'package:aartistic/viewModal/login_job_seeker.dart';
+import 'package:aartistic/widget/JobSeekerDrawer.dart';
 import 'package:aartistic/widget/employer_navigation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,11 +56,11 @@ class _JobSeekerProfileState extends State<JobSeekerProfile> {
         city.text = user.city;
         phone.text = user.phone;
         otherCountry.text = user.otherCountry;
-        if (['India', 'United States of America (USA)', 'Canada']
-            .contains(user.country)) {
-          showState = true;
-          statePic = user.state != '' ? user.state : 'Select State';
-        }
+        // if (['India', 'United States of America (USA)', 'Canada']
+        //     .contains(user.country)) {
+        //   showState = true;
+        //   statePic = user.state != '' ? user.state : 'Select State';
+        // }
         Firestore.instance
             .collection('countries')
             .orderBy('order')
@@ -306,6 +307,7 @@ class _JobSeekerProfileState extends State<JobSeekerProfile> {
                                           value: statePic,
                                           items:
                                               _listStates.map((PickList value) {
+                                                // print(value.toJson(value.value));
                                             return new DropdownMenuItem<String>(
                                               value: value.value,
                                               child: Row(
@@ -656,22 +658,7 @@ class _JobSeekerProfileState extends State<JobSeekerProfile> {
       appBar: AppBar(
         title: Text('Create Job seeker Profile'),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: <Color>[Colors.blueAccent, Colors.lightBlue])),
-              child: Text(''),
-            ),
-            NavigationItem('Profile', Icons.person,
-                () => {model.navigation(JobSeekerProfileRoute)}),
-            NavigationItem('Skill Listing', Icons.view_list,
-                () => {model.navigation(JobSeekerSkillListRoute)})
-          ],
-        ),
-      ),
+      drawer: JobSeekerDrawer()
     );
   }
 
@@ -683,6 +670,7 @@ class _JobSeekerProfileState extends State<JobSeekerProfile> {
           .orderBy('value', descending: false)
           .getDocuments()
           .then((value) {
+            
         this._listStates = [
           PickList.fromData({'value': 'Select State'})
         ];
@@ -691,6 +679,7 @@ class _JobSeekerProfileState extends State<JobSeekerProfile> {
               value.documents.map((e) => PickList.fromData(e.data)).toList());
         setState(() {
           this._listStates = listStates;
+          
           this.country = country;
           if (action) {
             this.state.text = '';

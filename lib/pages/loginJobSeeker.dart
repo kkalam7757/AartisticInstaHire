@@ -19,6 +19,7 @@ class _LoginJobSeekerState extends State<LoginJobSeeker> {
        
         children: <Widget>[
           Container(
+            padding: EdgeInsets.only(top: 20),
             child: Text(
               'Join as a Job seeker',
               textAlign: TextAlign.center,
@@ -30,57 +31,57 @@ class _LoginJobSeekerState extends State<LoginJobSeeker> {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 10, bottom: 40),
                   child: Image.asset(
                     'assets/login/loginJobSeeker.png',
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: GestureDetector(
-                    onTap: () {
-                      print("Container clicked");
-                      model.loginFaceboook();
-                    },
-                    child: new Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(29),
-                        color: Color(0xff1F4A8B),
-                      ),
-                      height: 45,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Container(
-                            width: 24,
-                            height: 24,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.white,
-                            ),
-                            child: Image.asset(
-                              'assets/icon/facebook.png',
-                            ),
-                          ),
-                          Expanded(
-                            child: Center(
-                              child: Text(
-                                "Login with Facebook",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   padding: const EdgeInsets.only(top: 50),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       print("Container clicked");
+                //       model.loginFaceboook();
+                //     },
+                //     child: new Container(
+                //       width: double.infinity,
+                //       decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(29),
+                //         color: Color(0xff1F4A8B),
+                //       ),
+                //       height: 45,
+                //       child: Row(
+                //         children: [
+                //           SizedBox(
+                //             width: 20,
+                //           ),
+                //           Container(
+                //             width: 24,
+                //             height: 24,
+                //             decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(12),
+                //               color: Colors.white,
+                //             ),
+                //             child: Image.asset(
+                //               'assets/icon/facebook.png',
+                //             ),
+                //           ),
+                //           Expanded(
+                //             child: Center(
+                //               child: Text(
+                //                 "Login with Facebook",
+                //                 style: TextStyle(
+                //                     color: Colors.white, fontSize: 16),
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Container(
                   padding: const EdgeInsets.only(top: 19),
                   child: GestureDetector(
@@ -124,97 +125,98 @@ class _LoginJobSeekerState extends State<LoginJobSeeker> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(top: 19),
-                  child: GestureDetector(
-                    onTap: () {
-                      print("Container clicked");
-                      model.loginTwitter();
-                    },
-                    child: new Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(29),
-                        color: Color(0xff03A9F4),
-                      ),
-                      height: 45,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Container(
-                            width: 24,
-                            height: 24,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.white,
-                            ),
-                            child: Image.asset(
-                              'assets/icon/twitter.png',
-                            ),
-                          ),
-                          Expanded(
-                            child: Center(
-                              child: Text(
-                                "Login with Twitter",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(top: 19),
-                  child: GestureDetector(
-                    onTap: () {
-                      print("Container clicked");
-                    },
-                    child: new Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(29),
-                          gradient: LinearGradient(colors: [
-                            Color(0xffFF9E6D),
-                            Color(0xffEF596A),
+                // Container(
+                //   padding: const EdgeInsets.only(top: 19),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       print("Container clicked");
+                //       // model.loginTwitter();
+                //     },
+                //     child: new Container(
+                //       width: double.infinity,
+                //       decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(29),
+                //         color: Color(0xff03A9F4),
+                //       ),
+                //       height: 45,
+                //       child: Row(
+                //         children: [
+                //           SizedBox(
+                //             width: 20,
+                //           ),
+                //           Container(
+                //             width: 24,
+                //             height: 24,
+                //             decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(12),
+                //               color: Colors.white,
+                //             ),
+                //             child: Image.asset(
+                //               'assets/icon/twitter.png',
+                //             ),
+                //           ),
+                //           Expanded(
+                //             child: Center(
+                //               child: Text(
+                //                 "Login with Twitter",
+                //                 style: TextStyle(
+                //                     color: Colors.white, fontSize: 16),
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //   padding: const EdgeInsets.only(top: 19),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       print("Container clicked");
+                //     },
+                //     child: new Container(
+                //       width: double.infinity,
+                //       decoration: BoxDecoration(
+                //           borderRadius: BorderRadius.circular(29),
+                //           gradient: LinearGradient(colors: [
+                //             Color(0xffFF9E6D),
+                //             Color(0xffEF596A),
                             
-                          ])),
-                      height: 45,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Container(
-                            width: 24,
-                            height: 24,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Image.asset(
-                              'assets/icon/instagram.png',
-                            ),
-                          ),
-                          Expanded(
-                            child: Center(
-                              child: Text(
-                                "Login with Instagram",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                //           ])),
+                //       height: 45,
+                //       child: Row(
+                //         children: [
+                //           SizedBox(
+                //             width: 20,
+                //           ),
+                //           Container(
+                //             width: 24,
+                //             height: 24,
+                //             decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(12),
+                //             ),
+                //             child: Image.asset(
+                //               'assets/icon/instagram.png',
+                //             ),
+                //           ),
+                //           Expanded(
+                //             child: Center(
+                //               child: Text(
+                //                 "Login with Instagram",
+                //                 style: TextStyle(
+                //                     color: Colors.white, fontSize: 16),
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20, bottom: 40),
                   child: GestureDetector(
                     onTap: () {
                       print("Container clicked");
@@ -262,7 +264,7 @@ class _LoginJobSeekerState extends State<LoginJobSeeker> {
               ],
             ),
           ),
-            footer()
+          footer()
 
         ],
       ),

@@ -18,8 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        
         title: 'Flutter layout demo',
-        theme: ThemeData(fontFamily: 'Regular'),
+        theme: ThemeData(
+          fontFamily: 'Regular',
+          backgroundColor: Color(0xfff9fdff)
+        ),
         builder: (context, child) => Navigator(
         key: locator<DialogService>().dialogNavigationKey,
         onGenerateRoute: (settings) => MaterialPageRoute(

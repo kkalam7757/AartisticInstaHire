@@ -5,6 +5,7 @@ import 'package:aartistic/modals/drop_down.dart';
 import 'package:aartistic/modals/user.dart';
 import 'package:aartistic/services/formatters.dart';
 import 'package:aartistic/viewModal/employ_profile_model.dart';
+import 'package:aartistic/widget/EmployerDrawer.dart';
 import 'package:aartistic/widget/employer_navigation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -754,22 +755,7 @@ class _EmployerProfileState extends State<EmployerProfile> {
       appBar: AppBar(
         title: Text('Create Employer Profile'),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: <Color>[Colors.blueAccent, Colors.lightBlue])),
-              child: Text(''),
-            ),
-            NavigationItem('Profile', Icons.person,
-                () => {model.navigation(EmployerProfileRoute)}),
-            NavigationItem('Job Listing', Icons.view_list,
-                () => {model.navigation(EmployerJobListingRoute)})
-          ],
-        ),
-      ),
+      drawer: EmployerDrawer()
     );
   }
 

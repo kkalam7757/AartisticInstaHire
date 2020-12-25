@@ -1,5 +1,15 @@
 import 'package:aartistic/constants/route_names.dart';
+import 'package:aartistic/pages/ApplicantDetails.dart';
+import 'package:aartistic/pages/DetailsEmployer.dart';
+import 'package:aartistic/pages/DetailsSeeker.dart';
 import 'package:aartistic/pages/JobListing.dart';
+import 'package:aartistic/pages/JobSeekerDashboard.dart';
+import 'package:aartistic/pages/MyApplicantsEmployer.dart';
+import 'package:aartistic/pages/MyListingEmployer.dart';
+import 'package:aartistic/pages/MyListingJobseeker.dart';
+import 'package:aartistic/pages/MyOrdersJobSeeker.dart';
+import 'package:aartistic/pages/Offers.dart';
+import 'package:aartistic/pages/OrderDetails.dart';
 import 'package:aartistic/pages/employerProfile.dart';
 import 'package:aartistic/pages/jobListingList.dart';
 import 'package:aartistic/pages/jobSeekerProfile.dart';
@@ -69,6 +79,67 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         routeName: settings.name,
         viewToShow: JobSeekerSkillList(),
       );
+      
+      case JobSeekerMyListingRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: MyListingJobseeker(), //MyListingJobseeker()
+      );
+      
+      case EmployerMyListingRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: MyListingEmployer(),
+      );
+      
+      case MyApplicantsEmployerRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: MyApplicantsEmployer(),
+      );
+
+      case ApplicantDetailsRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: ApplicantDetails(),
+      );
+
+      case MyOrdersJobSeekerRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: MyOrdersJobSeeker(),
+      );
+
+      case OrderDetailsRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: OrderDetails(),
+      );
+
+      case OffersRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: Offers(),
+      );
+      
+      case DetailsEmployerRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: DetailsEmployer(),
+      );
+      
+      case DetailsSeekerRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: DetailsSeeker(),
+      );
+      
+      case JobSeekerDashboardRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: JobSeekerDashboard(),
+      );
+
     default:
       return MaterialPageRoute(
           builder: (_) => Scaffold(

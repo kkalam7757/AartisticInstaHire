@@ -1,5 +1,5 @@
+import 'package:aartistic/res/app_colors.dart';
 import 'package:aartistic/viewModal/login_employer_model.dart';
-import 'package:aartistic/widget/footer.dart';
 import 'package:cross_local_storage/cross_local_storage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +26,10 @@ class _LoginEmployerState extends State<LoginEmployer> {
     userEmail.text = _localStorage.getString('email_emp');
     password.text = _localStorage.getString('password_emp');
     setState(() {
-      if(_localStorage != null && _localStorage.getBool('rememberMe_emp') != null)
-      rememberMe = _localStorage.getBool('rememberMe_emp');
+      if (_localStorage != null &&
+          _localStorage.getBool('rememberMe_emp') != null)
+        rememberMe = _localStorage.getBool('rememberMe_emp');
     });
-    
   }
 
   @override
@@ -49,8 +49,14 @@ class _LoginEmployerState extends State<LoginEmployer> {
       body: ListView(
         children: <Widget>[
           Container(
-              child: Text('Employer Login',
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 24))),
+              decoration: new BoxDecoration(
+                color: AppColors.white,
+              ),
+              height: 50,
+              child: Center(
+                  child: Text('Employer / Buyer Login',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20)))),
           Container(
             padding: const EdgeInsets.only(top: 10),
             child: Image.asset(
@@ -184,7 +190,8 @@ class _LoginEmployerState extends State<LoginEmployer> {
                                       text: 'Forgot Password?',
                                       style: TextStyle(
                                           color: Color(0xffFF3333),
-                                          fontSize: 14),
+                                          fontSize: 14,
+                                          decoration: TextDecoration.underline),
                                       recognizer: new TapGestureRecognizer()
                                         ..onTap = () {
                                           model.join();
@@ -225,7 +232,7 @@ class _LoginEmployerState extends State<LoginEmployer> {
                     child: new Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(29),
+                        borderRadius: BorderRadius.circular(5),
                         color: Color(0xff1F4A8B),
                       ),
                       height: 50,
@@ -259,7 +266,6 @@ class _LoginEmployerState extends State<LoginEmployer> {
                     ),
                   ),
                 ),
-                footer()
               ],
             ),
           ),

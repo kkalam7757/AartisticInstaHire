@@ -1,6 +1,7 @@
 const String LoginViewEmployerRoute = "LoginEmployer";
 const String LoginJobSeekerRoute = "LoginJobSeeker";
 const String SignUpViewEmployerRoute = "SignUpEmployer";
+const String HomeViewRoute = "Home";
 const String EmployerProfileRoute = "EmployerProfile";
 const String EmployerJobListingRoute = "EmployerJobListing";
 const String EmployerJobListingNewRoute = "EmployerJobListingNew";
@@ -19,6 +20,7 @@ const String DetailsSeekerRoute = 'DetailsSeeker';
 const String JobSeekerLoginEmailRoute = 'JobSeekerLoginEmail';
 const String JobSeekerSkillListingRoute = 'JobSeekerSkillListing';
 const String JobSeekerSkillListRoute = 'JobSeekerSkillList';
+const String JobCreatetRoute = 'JobCreate';
 const String RestCountryAPIKey = '53a64c9e4e5144ed75eda6ff5ad7940d';
 const String TwitterApiKey = 'ZJvOkplDhlMy8dYEMVYmAVoAq';
 const String TwitterApiSecret = '2O5yfBJcmhloWzQWutWOBLqFKrks6Mn1fGRlMiK1QKGRxI9NtK';

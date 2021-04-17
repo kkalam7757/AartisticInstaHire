@@ -4,13 +4,11 @@ import 'package:aartistic/modals/user.dart';
 import 'package:aartistic/services/formatters.dart';
 import 'package:aartistic/viewModal/login_job_seeker.dart';
 import 'package:aartistic/widget/JobSeekerDrawer.dart';
-import 'package:aartistic/widget/employer_navigation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
 class JobSeekerProfile extends StatefulWidget {
@@ -658,7 +656,7 @@ class _JobSeekerProfileState extends State<JobSeekerProfile> {
       appBar: AppBar(
         title: Text('Create Job seeker Profile'),
       ),
-      drawer: JobSeekerDrawer()
+     // drawer: JobSeekerDrawer()
     );
   }
 

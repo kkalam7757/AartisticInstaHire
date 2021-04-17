@@ -1,5 +1,4 @@
 import 'package:aartistic/services/navigation_service.dart';
-import 'package:aartistic/widget/JobSeekerDrawer.dart';
 import 'package:aartistic/widget/NavigationBackIcon.dart';
 import 'package:flutter/material.dart';
 

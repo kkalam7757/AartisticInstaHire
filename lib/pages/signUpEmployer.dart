@@ -1,10 +1,12 @@
-import 'dart:developer';
-
-import 'package:aartistic/widget/footer.dart';
+import 'package:aartistic/res/app_colors.dart';
+import 'package:aartistic/viewModal/sign_up_model.dart';
+import 'package:aartistic/viewModal/welcome_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:aartistic/viewModal/sign_up_model.dart';
+import 'package:flutter/rendering.dart';
 import 'package:progress_dialog/progress_dialog.dart';
+
+import 'loginEmployer.dart';
 
 class SignUpEmployer extends StatelessWidget {
   ProgressDialog pr;
@@ -13,17 +15,22 @@ class SignUpEmployer extends StatelessWidget {
   final fullName = TextEditingController();
   final confirmPassword = TextEditingController();
   SignUpViewModel model = new SignUpViewModel();
+  WelcomeViewModel model1 = new WelcomeViewModel();
+
   @override
   Widget build(BuildContext context) {
     pr = new ProgressDialog(context, showLogs: true);
     pr.style(message: 'Please wait...');
     return Scaffold(
       body: ListView(
-       
         children: <Widget>[
           Container(
-              child: Text('Employer Sign up',
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 24))),
+              height: 50,
+              decoration: new BoxDecoration(color: AppColors.white),
+              child: Center(
+                  child: Text('Join (Employer/Buyer)',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20)))),
           Container(
             padding: const EdgeInsets.only(top: 10),
             child: Image.asset(
@@ -61,7 +68,6 @@ class SignUpEmployer extends StatelessWidget {
                         ),
                         TextField(
                           controller: fullName,
-                          
                           style: TextStyle(
                             fontSize: 18.0,
                           ),
@@ -104,7 +110,6 @@ class SignUpEmployer extends StatelessWidget {
                         ),
                         TextField(
                           controller: userEmail,
-                          
                           style: TextStyle(
                             fontSize: 18.0,
                           ),
@@ -209,6 +214,26 @@ class SignUpEmployer extends StatelessWidget {
                   ),
                 ),
                 Container(
+                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('I agree to your'),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Terms',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   padding: const EdgeInsets.only(top: 20),
                   child: GestureDetector(
                     onTap: () {
@@ -220,26 +245,50 @@ class SignUpEmployer extends StatelessWidget {
                           fullName: fullName.text,
                           selectRole: 'Employer',
                           context: context,
-                          confirmPassword:confirmPassword.text,
+                          confirmPassword: confirmPassword.text,
                           pr: pr);
                     },
                     child: new Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(29),
+                        borderRadius: BorderRadius.circular(5),
                         color: Color(0xff1F4A8B),
                       ),
                       height: 50,
                       child: Center(
                         child: Text(
-                          "Sign up",
+                          "JOIN",
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       ),
                     ),
                   ),
                 ),
-                footer()
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Already a member?'),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: AppColors.snackBarRed,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
+                            ))
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

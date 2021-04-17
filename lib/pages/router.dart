@@ -22,6 +22,9 @@ import 'package:aartistic/pages/signUpEmployer.dart';
 import 'package:aartistic/pages/signUpJobSeeker.dart';
 import 'package:flutter/material.dart';
 
+import 'Home.dart';
+import 'JobCreate.dart';
+
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case EmployerProfileRoute:
@@ -38,6 +41,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: LoginJobSeeker(),
+      );
+
+    case HomeViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: Home(),
       );
     case SignUpViewEmployerRoute:
       return _getPageRoute(
@@ -78,6 +87,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: JobSeekerSkillList(),
+      );
+    case JobCreatetRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: JobCreate(),
       );
       
       case JobSeekerMyListingRoute:

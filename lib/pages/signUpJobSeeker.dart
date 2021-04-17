@@ -1,19 +1,19 @@
-
-import 'package:aartistic/viewModal/login_job_seeker.dart';
 import 'package:aartistic/constants/route_names.dart';
-import 'package:aartistic/widget/footer.dart';
+import 'package:aartistic/res/app_colors.dart';
+import 'package:aartistic/viewModal/login_job_seeker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
 class SignUpJobSeeker extends StatelessWidget {
   ProgressDialog pr;
-  
+
   final userEmail = TextEditingController();
   final password = TextEditingController();
   final fullName = TextEditingController();
   final confirmPassword = TextEditingController();
   JobSeekerModel model = new JobSeekerModel();
+
   @override
   Widget build(BuildContext context) {
     pr = new ProgressDialog(context, showLogs: true);
@@ -22,22 +22,29 @@ class SignUpJobSeeker extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Container(
-                    child: Text('Job Seeker Sign up',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 24))),
+                  height: 50,
+                  child: Card(
+                    elevation: 2, // Change this
+                    shadowColor: Colors.black12, // Change this
+                    child: Center(
+                      child: Text("Join" + "(Job-Seeker/Seller)",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20)),
+                    ),
+                  ),
+                ),
                 Container(
-                  padding: const EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.fromLTRB(20, 30, 20, 0),
                   child: Image.asset(
                     'assets/login/loginJobSeeker.png',
                     fit: BoxFit.cover,
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 40),
+                  margin: EdgeInsets.fromLTRB(20, 50, 20, 0),
                   child: Container(
                     height: 54,
                     decoration: BoxDecoration(
@@ -79,7 +86,7 @@ class SignUpJobSeeker extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
                   child: Container(
                     height: 54,
                     decoration: BoxDecoration(
@@ -121,7 +128,7 @@ class SignUpJobSeeker extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
                   child: Container(
                     height: 54,
                     decoration: BoxDecoration(
@@ -164,7 +171,7 @@ class SignUpJobSeeker extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
                   child: Container(
                     height: 54,
                     decoration: BoxDecoration(
@@ -207,7 +214,24 @@ class SignUpJobSeeker extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'I agree to your',
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "Terms",
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ),
+                        )
+                      ],
+                    )),
+                Container(
+                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: GestureDetector(
                     onTap: () {
                       print("Container clicked");
@@ -219,19 +243,18 @@ class SignUpJobSeeker extends StatelessWidget {
                           selectRole: JobSeeker,
                           confirmPassword: confirmPassword.text,
                           context: context,
-                          pr: pr
-                          );
+                          pr: pr);
                     },
                     child: new Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(29),
+                        borderRadius: BorderRadius.circular(5),
                         color: Color(0xff1F4A8B),
                       ),
                       height: 50,
                       child: Center(
                         child: Text(
-                          "Sign up",
+                          "JOIN",
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       ),
@@ -241,10 +264,33 @@ class SignUpJobSeeker extends StatelessWidget {
               ],
             ),
           ),
-          footer()
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Already a member?'),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                            color: AppColors.snackBarRed,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline),
+                      ))
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
-    throw UnimplementedError();
   }
 }

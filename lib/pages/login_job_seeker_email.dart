@@ -1,3 +1,4 @@
+import 'package:aartistic/res/app_colors.dart';
 import 'package:aartistic/viewModal/login_job_seeker.dart';
 import 'package:aartistic/widget/footer.dart';
 import 'package:cross_local_storage/cross_local_storage.dart';
@@ -23,10 +24,9 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
     userEmail.text = _localStorage.getString('email');
     password.text = _localStorage.getString('password');
     setState(() {
-       if(_localStorage != null && _localStorage.getBool('rememberMe') != null)
-      rememberMe = _localStorage.getBool('rememberMe');
+      if (_localStorage != null && _localStorage.getBool('rememberMe') != null)
+        rememberMe = _localStorage.getBool('rememberMe');
     });
-    
   }
 
   @override
@@ -45,22 +45,29 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
       body: ListView(
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Container(
-                    child: Text('Job Seeker Login',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 24))),
+                  height:50,
+                  child: Card(
+                    elevation: 2, // Change this
+                    shadowColor: Colors.black12, // Change this
+                    child: Center(
+                      child: Text('Job-Seeker/Seller Login',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20)),
+                    ),
+                  ),
+                ),
                 Container(
-                  padding: const EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.fromLTRB(20,40,20,0),
                   child: Image.asset(
                     'assets/login/loginJobSeeker.png',
                     fit: BoxFit.cover,
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 30),
+                  margin: EdgeInsets.fromLTRB(20,40,20,0),
                   child: Container(
                     height: 54,
                     decoration: BoxDecoration(
@@ -102,7 +109,7 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  margin: EdgeInsets.fromLTRB(20,10,20,0),
                   child: Container(
                     height: 54,
                     decoration: BoxDecoration(
@@ -145,7 +152,7 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.fromLTRB(10,10,15,0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
@@ -197,7 +204,7 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  margin: EdgeInsets.fromLTRB(20,20,20,0),
                   child: GestureDetector(
                     onTap: () async {
                       pr.show();
@@ -219,7 +226,7 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
                     child: new Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(29),
+                        borderRadius: BorderRadius.circular(5),
                         color: Color(0xff1F4A8B),
                       ),
                       height: 50,
@@ -244,7 +251,7 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
                           ),
                           TextSpan(
                             text: 'Join',
-                            style: TextStyle(color: Color(0xffFF3333)),
+                            style: TextStyle(color: AppColors.snackBarRed,decoration: TextDecoration.underline),
                             recognizer: new TapGestureRecognizer()
                               ..onTap = () {
                                 model.join();
@@ -256,7 +263,6 @@ class _LoginJobSeekerEmailState extends State<LoginJobSeekerEmail> {
               ],
             ),
           ),
-          footer()
         ],
       ),
     );

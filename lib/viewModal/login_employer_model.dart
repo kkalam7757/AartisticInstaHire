@@ -36,7 +36,8 @@ class LoginEmployerViewModel extends BaseModel {
       if (result is bool) {
         pr.hide();
         if (result) {
-          _navigationService.navigateTo(EmployerProfileRoute);
+          _navigationService.navigateTo(HomeViewRoute);
+
         } else {
           await _dialogService.showDialog(
             title: 'Please Correct...',

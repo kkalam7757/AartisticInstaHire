@@ -5,7 +5,6 @@ class footer extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      height: 100,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

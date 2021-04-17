@@ -33,7 +33,7 @@ class JobSeekerModel extends BaseModel {
       if (result is bool) {
         pr.hide();
         if (result) {
-          _navigationService.navigateTo(JobSeekerDashboardRoute);
+          _navigationService.navigateTo(HomeViewRoute);
         } else {
           await _dialogService.showDialog(
             title: 'Please Correct...',
